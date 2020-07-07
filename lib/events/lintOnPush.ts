@@ -122,17 +122,28 @@ const RunCommitlintStep: LintStep = {
         }
 
         const argsString = args.join(" ");
+        const prefix = `${params.project.path()}/`;
         await ctx.audit.log(`Running commitlint with: $ commitlint ${argsString}`);
 
-        const lines = [];
+        const output = [];
         const results = [];
 
         for (const commit of push.after.pullRequests[0].commits) {
+            const lines = [];
             results.push(
                 await params.project.spawn("/bin/sh", ["-c", `echo "${commit.message}" | ${cmd} ${args.join(" ")}`], {
                     log: { write: msg => lines.push(msg) },
                 }),
             );
+            output.push(`---
+
+Linting \`${commit.sha}\`
+\`\`\`
+${lines
+    .join("\n")
+    .split(prefix)
+    .join("")}
+\`\`\``);
         }
 
         if (!results.some(r => r.status !== 0)) {
@@ -143,9 +154,7 @@ const RunCommitlintStep: LintStep = {
 
 \`$ commitlint ${argsString}\`
 
-\`\`\`
-${lines.join("\n")}
-\`\`\``,
+${output.join("\n")}`,
             });
             return {
                 code: 0,
@@ -158,9 +167,7 @@ ${lines.join("\n")}
 
 \`$ commitlint ${argsString}\`
 
-\`\`\`
-${lines.join("\n")}
-\`\`\``,
+${output.join("\n")}`,
             });
 
             return {
