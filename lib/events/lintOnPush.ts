@@ -140,11 +140,7 @@ const RunCommitlintStep: LintStep = {
 
 Linting \`${commit.sha}\`
 \`\`\`
-${lines
-    .join("\n")
-    .split(prefix)
-    .join("")
-    .trim()}
+${lines.join("\n").split(prefix).join("").trim()}
 \`\`\``);
         }
 
