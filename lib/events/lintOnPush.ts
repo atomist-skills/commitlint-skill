@@ -143,7 +143,8 @@ Linting \`${commit.sha}\`
 ${lines
     .join("\n")
     .split(prefix)
-    .join("")}
+    .join("")
+    .trim()}
 \`\`\``);
         }
 
