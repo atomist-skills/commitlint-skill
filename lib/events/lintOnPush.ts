@@ -177,6 +177,6 @@ ${lines.join("\n")}
 export const handler: EventHandler<LintOnPushSubscription, LintConfiguration> = async ctx => {
     return runSteps({
         context: ctx,
-        steps: [SetupStep, NpmInstallStep, ValidateRepositoryStep, RunCommitlintStep],
+        steps: [SetupStep, NpmInstallStep, RunCommitlintStep],
     });
 };
