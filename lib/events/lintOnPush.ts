@@ -121,7 +121,7 @@ const RunCommitlintStep: LintStep = {
             await fs.writeFile(params.project.path(".commitlintrc.json"), cfg.config);
         }
 
-        const argsString = args.join(" ").split(`${params.project.path()}/`).join("");
+        const argsString = args.join(" ");
         await ctx.audit.log(`Running commitlint with: $ commitlint ${argsString}`);
 
         const lines = [];
