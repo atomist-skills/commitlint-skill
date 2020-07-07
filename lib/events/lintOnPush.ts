@@ -84,35 +84,22 @@ const NpmInstallStep: LintStep = {
             await params.project.spawn("npm", ["install"], opts);
         }
 
-        const cfg = ctx.configuration[0].parameters;
-        if (cfg.modules?.length > 0) {
+        const modules = [...(ctx.configuration[0].parameters.modules || [])];
+
+        if (!(await fs.pathExists(params.project.path("node_modules", ".bin", "commitlint")))) {
+            if (!modules.includes("commitlint") && !modules.includes("@commitlint/cli")) {
+                modules.push("@commitlint/cli");
+            }
+        }
+
+        if (modules.length > 0) {
             await ctx.audit.log("Installing configured NPM packages");
-            await params.project.spawn("npm", ["install", ...cfg.modules, "--save-dev"], opts);
+            await params.project.spawn("npm", ["install", ...modules, "--save-dev"], opts);
             await params.project.spawn("git", ["reset", "--hard"], opts);
         }
         return {
             code: 0,
         };
-    },
-};
-
-const ValidateRepositoryStep: LintStep = {
-    name: "validate",
-    run: async (ctx, params) => {
-        const push = ctx.data.Push[0];
-        const repo = push.repo;
-
-        if (!(await fs.pathExists(params.project.path("node_modules", ".bin", "commitlint")))) {
-            return {
-                code: 1,
-                visibility: "hidden",
-                reason: `No commitlint installed in [${repo.owner}/${repo.name}](${repo.url})`,
-            };
-        } else {
-            return {
-                code: 0,
-            };
-        }
     },
 };
 
