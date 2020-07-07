@@ -133,6 +133,7 @@ const RunCommitlintStep: LintStep = {
             results.push(
                 await params.project.spawn("/bin/sh", ["-c", `echo "${commit.message}" | ${cmd} ${args.join(" ")}`], {
                     log: { write: msg => lines.push(msg) },
+                    logCommand: false,
                 }),
             );
             output.push(`---
