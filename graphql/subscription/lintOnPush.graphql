@@ -1,0 +1,36 @@
+subscription lintOnPush {
+    Push {
+        after {
+            url
+            sha
+            author {
+                login
+                name
+                emails {
+                    address
+                }
+            }
+            pullRequests @required {
+                head {
+                    sha
+                }
+                commits {
+                    sha
+                    message
+                }
+            }
+        }
+        branch
+        repo {
+            defaultBranch
+            url
+            owner
+            name
+            org {
+                provider {
+                    apiUrl
+                }
+            }
+        }
+    }
+}

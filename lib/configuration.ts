@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
-export interface Configuration {
-    world: string;
+export interface LintConfiguration {
+    config?: string;
+    args?: string[];
+    modules?: string[];
 }

@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-import { parameter, ParameterType, resourceProvider, skill } from "@atomist/skill";
-import { Configuration } from "./lib/configuration";
+import { Category, LineStyle, parameter, ParameterType, resourceProvider, skill } from "@atomist/skill";
+import { LintConfiguration } from "./lib/configuration";
 
-export const Skill = skill<Configuration & { repos: any }>({
+export const Skill = skill<LintConfiguration & { repos: any }>({
     name: "commitlint-skill",
     namespace: "atomist",
     displayName: "commitlint",
-    author: "atomist-skills",
-    categories: [],
+    author: "Atomist",
+    categories: [Category.CodeReview],
     license: "Apache-2.0",
     homepageUrl: "https://github.com/atomist-skills/commitlint-skill",
     repositoryUrl: "https://github.com/atomist-skills/commitlint-skill.git",
@@ -39,23 +39,30 @@ export const Skill = skill<Configuration & { repos: any }>({
     },
 
     parameters: {
-        world: {
+        config: {
             type: ParameterType.String,
-            displayName: "World",
-            description: "",
+            displayName: "Configuration",
+            description:
+                "commitlint configuration in JSON format used if project does not contain own configuration. See the [commitlint documentation](https://commitlint.js.org/#/reference-configuration) on how to configure it.",
+            lineStyle: LineStyle.Multiple,
+            required: false,
+        },
+        args: {
+            type: ParameterType.StringArray,
+            displayName: "Extra arguments",
+            description:
+                "Additional [command line arguments](https://commitlint.js.org/#/reference-cli) passed to commitlint",
+            required: false,
+        },
+        modules: {
+            type: ParameterType.StringArray,
+            displayName: "NPM packages to install",
+            description:
+                "Use this parameter to configure NPM packages like commitlint itself or plugins that should get installed",
             required: false,
         },
         repos: parameter.repoFilter(),
     },
-
-    commands: [
-        {
-            name: "helloWorld",
-            displayName: "HelloWorld",
-            pattern: /^hello world$/,
-            description: "Simple hello world command",
-        },
-    ],
 
     subscriptions: ["file://graphql/subscription/*.graphql"],
 });
