@@ -118,10 +118,13 @@ const RunCommitlintStep: LintStep = {
         const configs = await project.globFiles(params.project, ["commitlint.config.js", ".commitlintrc.*"]);
         const pj = await fs.readJson(params.project.path("package.json"));
         if (configs.length === 0 && !pj.commitlint && !!cfg.config) {
-            await fs.writeFile(".commitlintrc.json", cfg.config);
+            await fs.writeFile(params.project.path(".commitlintrc.json"), cfg.config);
         }
 
-        const argsString = args.join(" ").split(`${params.project.path()}/`).join("");
+        const argsString = args
+            .join(" ")
+            .split(`${params.project.path()}/`)
+            .join("");
         await ctx.audit.log(`Running commitlint with: $ commitlint ${argsString}`);
 
         const lines = [];
