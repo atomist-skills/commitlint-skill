@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/commitlint-skill/compare/0.1.0...HEAD)
 
+### Added
+
+-   Add option to lint PR title. [ecd1e59](https://github.com/atomist-skills/commitlint-skill/commit/ecd1e5922851e71f26aadfabdab26a8eefe05e80)
+
 ## [0.1.0](https://github.com/atomist-skills/commitlint-skill/tree/0.1.0) - 2020-07-08
 
 ### Added
