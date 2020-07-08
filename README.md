@@ -12,17 +12,18 @@ Validate commit messages using commitlint
 
 # What it's useful for
 
-commitlint helps your team adhering to a commit convention.
+Use [commitlint](https://commitlint.js.org) to adhere to a commit convention by monitoring
+commits on incoming pull requests across all of your repositories.
 
 -   Apply the same commit conventions across all repositories without manual configuration
--   Enjoy consistent and clear commit messages
+-   Enjoy the benefits of consistent and clear commit messages
 
 # Before you get started
 
 Connect and configure this integration:
 
 -   **GitHub**
--   **Slack or Micosoft Teams**
+-   **Slack or Microsoft Teams**
 
 The **GitHub** integration must be configured in order to use this skill. At least one repository must be selected.
 We recommend that you configure the **Slack** or **Microsoft Teams** integration.
@@ -59,7 +60,7 @@ We recommend that you configure the **Slack** or **Microsoft Teams** integration
 
 1. **Configure the skill by providing a commitlint configuration**
 
-1. **Get the commit messages validated on newly raised pull requests**
+1. **Get the commit messages validated on raised pull requests**
 
 To create feature requests or bug reports, create an [issue in the repository for this skill](https://github.com/atomist-skills/commitlint-skill/issues).
 See the [code](https://github.com/atomist-skills/commitlint-skill) for the skill.
