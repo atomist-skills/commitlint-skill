@@ -17,7 +17,7 @@
 import { EventContext, EventHandler, github, project, repository, runSteps, secret, Step } from "@atomist/skill";
 import * as fs from "fs-extra";
 import { LintConfiguration } from "../configuration";
-import { LintOnPushSubscription } from "../typings/types";
+import { LintOnPullRequestSubscription } from "../typings/types";
 
 interface LintParameters {
     project: project.Project;
@@ -26,13 +26,13 @@ interface LintParameters {
     check: github.Check;
 }
 
-type LintStep = Step<EventContext<LintOnPushSubscription, LintConfiguration>, LintParameters>;
+type LintStep = Step<EventContext<LintOnPullRequestSubscription, LintConfiguration>, LintParameters>;
 
 const SetupStep: LintStep = {
     name: "clone repository",
     run: async (ctx, params) => {
-        const push = ctx.data.Push[0];
-        const repo = push.repo;
+        const pr = ctx.data.PullRequest[0];
+        const repo = pr.repo;
 
         await ctx.audit.log(`Starting commitlint on ${repo.owner}/${repo.name}`);
 
@@ -49,15 +49,15 @@ const SetupStep: LintStep = {
                 owner: repo.owner,
                 repo: repo.name,
                 credential: params.credential,
-                branch: push.branch,
-                sha: push.after.sha,
+                branch: pr.branchName,
+                sha: pr.head.sha,
             }),
-            { alwaysDeep: false, detachHead: false },
+            { alwaysDeep: false, detachHead: true },
         );
-        await ctx.audit.log(`Cloned repository ${repo.owner}/${repo.name} at sha ${push.after.sha.slice(0, 7)}`);
+        await ctx.audit.log(`Cloned repository ${repo.owner}/${repo.name} at sha ${pr.head.sha.slice(0, 7)}`);
 
         params.check = await github.openCheck(ctx, params.project.id, {
-            sha: push.after.sha,
+            sha: pr.head.sha,
             name: ctx.skill.name,
             title: "commitlint",
             body: `Running \`commitlint\``,
@@ -106,8 +106,8 @@ const NpmInstallStep: LintStep = {
 const RunCommitlintStep: LintStep = {
     name: "run commitlint",
     run: async (ctx, params) => {
-        const push = ctx.data.Push[0];
-        const repo = push.repo;
+        const pr = ctx.data.PullRequest[0];
+        const repo = pr.repo;
         const cfg = ctx.configuration?.[0]?.parameters;
         const cmd = params.project.path("node_modules", ".bin", "commitlint");
         const args: string[] = [];
@@ -127,8 +127,9 @@ const RunCommitlintStep: LintStep = {
 
         const output = [];
         const results = [];
+        const commits = cfg.headOnly ? [pr.head] : pr.commits;
 
-        for (const commit of push.after.pullRequests[0].commits) {
+        for (const commit of commits) {
             const lines = [];
             results.push(
                 await params.project.spawn("/bin/sh", ["-c", `echo "${commit.message}" | ${cmd} ${args.join(" ")}`], {
@@ -140,7 +141,10 @@ const RunCommitlintStep: LintStep = {
 
 Linting \`${commit.sha}\`
 \`\`\`
-${lines.join("\n").split(prefix).join("").trim()}
+${
+    // prettier-ignore
+    lines.join("\n").split(prefix).join("").trim()
+}
 \`\`\``);
         }
 
@@ -176,7 +180,7 @@ ${output.join("\n")}`,
     },
 };
 
-export const handler: EventHandler<LintOnPushSubscription, LintConfiguration> = async ctx => {
+export const handler: EventHandler<LintOnPullRequestSubscription, LintConfiguration> = async ctx => {
     return runSteps({
         context: ctx,
         steps: [SetupStep, NpmInstallStep, RunCommitlintStep],
