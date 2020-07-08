@@ -42,7 +42,14 @@ export const Skill = skill<LintConfiguration & { repos: any }>({
         headOnly: {
             type: ParameterType.Boolean,
             displayName: "Check head commit only",
-            description: "Set this parameter if you want to only check the pull request head commit",
+            description: "Check this if you want to only check the pull request head commit and not all commits",
+            required: false,
+        },
+        title: {
+            type: ParameterType.Boolean,
+            displayName: "Check pull request title",
+            description:
+                "Check this if you want to check the pull request title for consistency when the pull request only contains one commit",
             required: false,
         },
         config: {

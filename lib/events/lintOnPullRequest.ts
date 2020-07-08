@@ -127,7 +127,12 @@ const RunCommitlintStep: LintStep = {
 
         const output = [];
         const results = [];
-        const commits = cfg.headOnly ? [pr.head] : pr.commits;
+        const commits = [];
+        if (pr.commits.length === 1 && cfg.title) {
+            commits.push({ sha: "Pull request title", message: pr.title });
+        } else {
+            commits.push(...(cfg.headOnly ? [pr.head] : pr.commits));
+        }
 
         for (const commit of commits) {
             const lines = [];

@@ -1,5 +1,6 @@
 subscription lintOnPullRequest {
   PullRequest {
+    title
     head {
       sha
       message
