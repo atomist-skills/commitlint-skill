@@ -56,7 +56,7 @@ const SetupStep: LintStep = {
         );
         await ctx.audit.log(`Cloned repository ${repo.owner}/${repo.name} at sha ${pr.head.sha.slice(0, 7)}`);
 
-        params.check = await github.openCheck(ctx, params.project.id, {
+        params.check = await github.createCheck(ctx, params.project.id, {
             sha: pr.head.sha,
             name: ctx.skill.name,
             title: "commitlint",
