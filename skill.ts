@@ -22,7 +22,7 @@ export const Skill = skill<LintConfiguration & { repos: any }>({
     namespace: "atomist",
     displayName: "commitlint",
     author: "Atomist",
-    categories: [Category.CodeReview],
+    categories: [Category.CodeQuality],
     license: "Apache-2.0",
     homepageUrl: "https://github.com/atomist-skills/commitlint-skill",
     repositoryUrl: "https://github.com/atomist-skills/commitlint-skill.git",
