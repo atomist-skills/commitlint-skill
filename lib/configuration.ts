@@ -15,9 +15,9 @@
  */
 
 export interface LintConfiguration {
-    headOnly?: boolean;
-    title?: boolean;
-    config?: string;
-    args?: string[];
-    modules?: string[];
+	headOnly?: boolean;
+	title?: boolean;
+	config?: string;
+	args?: string[];
+	modules?: string[];
 }
