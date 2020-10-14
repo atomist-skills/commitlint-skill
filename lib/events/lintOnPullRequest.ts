@@ -102,7 +102,7 @@ const NpmInstallStep: LintStep = {
 			await params.project.spawn("npm", ["install"], opts);
 		}
 
-		const modules = [...(ctx.configuration[0].parameters.modules || [])];
+		const modules = [...(ctx.configuration?.parameters?.modules || [])];
 
 		if (
 			!(await fs.pathExists(
@@ -137,7 +137,7 @@ const RunCommitlintStep: LintStep = {
 	run: async (ctx, params) => {
 		const pr = ctx.data.PullRequest[0];
 		const repo = pr.repo;
-		const cfg = ctx.configuration?.[0]?.parameters;
+		const cfg = ctx.configuration?.parameters;
 		const cmd = params.project.path("node_modules", ".bin", "commitlint");
 		const args: string[] = [];
 
