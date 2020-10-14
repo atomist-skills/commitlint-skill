@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/commitlint-skill/compare/0.1.2...HEAD)
 
+### Changed
+
+-   Remove single dispatch. [b6d01fc](https://github.com/atomist-skills/commitlint-skill/commit/b6d01fc65d54ffa3422e041276740a1855bc929f)
+
 ## [0.1.2](https://github.com/atomist-skills/commitlint-skill/compare/0.1.1...0.1.2) - 2020-07-26
 
 ### Changed
