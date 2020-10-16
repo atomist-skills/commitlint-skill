@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/commitlint-skill/compare/0.1.3...HEAD)
 
+### Changed
+
+-   Update skill category. [e514527](https://github.com/atomist-skills/commitlint-skill/commit/e514527f0d628bd389993c4b4e7b218bcbf4dfb1)
+
 ## [0.1.3](https://github.com/atomist-skills/commitlint-skill/compare/0.1.2...0.1.3) - 2020-10-14
 
 ### Changed
