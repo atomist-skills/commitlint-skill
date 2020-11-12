@@ -118,7 +118,7 @@ const NpmInstallStep: LintStep = {
 		}
 
 		if (modules.length > 0) {
-			await ctx.audit.log("Installing configured NPM packages");
+			await ctx.audit.log("Installing configured npm packages");
 			await params.project.spawn(
 				"npm",
 				["install", ...modules, "--save-dev"],

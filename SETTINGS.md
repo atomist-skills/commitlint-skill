@@ -42,7 +42,7 @@ Connect and configure these integrations:
     ![Packages and plugins](docs/images/npm-packages.png)
 
     If your commitlint configuration needs special packages or plugins, use this
-    parameter to specify the NPM packages that should be installed in addition
+    parameter to specify the npm packages that should be installed in addition
     to dependencies from the `package.json`.
 
 1.  **Determine repository scope**
