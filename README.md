@@ -1,77 +1,82 @@
 # `atomist/commitlint-skill`
 
-<!---atomist-skill-description:start--->
+Validate commit messages on pull requests using [commitlint][].
 
-Validate commit messages using commitlint
+:sparkles: [_**View this skill in the Atomist Skills Catalog**_][atomist-skill]
+to enable this skill on your repositories. :sparkles:
 
-<!---atomist-skill-description:end--->
+See the [Atomist website][atomist] for general information about Atomist Skills
+and the [Atomist documentation site][atomist-doc] for instructions on how to get
+started using Atomist Skills.
 
----
+[commitlint]: https://commitlint.js.org/ "commitlint - Lint Commit Messages"
+[atomist-skill]:
+    https://go.atomist.com/catalog/skills/atomist/commitlint-skill
+    "Atomist Skills Catalog - Automate All Your Software Tasks"
+[atomist-doc]: https://docs.atomist.com/ "Atomist Documentation"
 
-<!---atomist-skill-readme:start--->
+## Contributing
 
-# What it's useful for
+Contributions to this project from community members are encouraged and
+appreciated. Please review the [Contributing Guidelines](CONTRIBUTING.md) for
+more information. Also see the [Development](#development) section in this
+document.
 
-Use [commitlint](https://commitlint.js.org) to adhere to a commit convention by
-monitoring commits on incoming pull requests across all of your repositories.
+## Code of conduct
 
--   Apply the same commit conventions across all repositories without manual
-    configuration
--   Enjoy the benefits of consistent and clear commit messages
+This project is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). You are
+expected to act in accordance with this code by participating. Please report any
+unacceptable behavior to code-of-conduct@atomist.com.
 
-# Before you get started
+## Connect
 
-Connect and configure this integration:
+Follow [@atomist][atomist-twitter] on Twitter and [The Atomist
+Blog][atomist-blog].
 
--   **GitHub**
+[atomist-twitter]: https://twitter.com/atomist "Atomist on Twitter"
+[atomist-blog]: https://blog.atomist.com/ "The Atomist Blog"
 
-The **GitHub** integration must be configured in order to use this skill. At
-least one repository must be selected.
+## Support
 
-# How to configure
+General support questions should be discussed in the `#support` channel in the
+[Atomist community Slack workspace][slack].
 
-1. **Specify an optional commitlint configuration in JSON format**
+If you find a problem, please create an [issue](../../issues).
 
-    Provide the
-    [commitlint configuration](https://commitlint.js.org/#/reference-configuration)
-    in JSON format to be used for linting pull request commit messages.
+## Development
 
-1. **Specify optional arguments to commitlint**
+You will need to install [Node.js][node] to build and test this project.
 
-    Configure optional arguments to pass to the `commitlint` command. See the
-    [commitlint documentation](https://commitlint.js.org/#/reference-cli) for a
-    list of available arguments.
+[node]: https://nodejs.org/ "Node.js"
 
-1. **Configure commitlint packages and plugins to be installed**
+### Build and test
 
-    If your commitlint configuration needs special packages or plugins, use this
-    parameter to specify the NPM packages that should be installed in addition
-    to dependencies from the `package.json`.
+Install dependencies.
 
-1. **Determine repository scope**
+```
+$ npm ci
+```
 
-    By default, this skill will be enabled for all repositories in all
-    organizations you have connected.
+Use the `build` package script to compile, test, lint, and build the
+documentation.
 
-    To restrict the organizations or specific repositories on which the skill
-    will run, you can explicitly choose organization(s) and repositories.
+```
+$ npm run build
+```
 
-# How to keep your commit messages consistent
+### Release
 
-1. **Configure the skill by providing a commitlint configuration**
+Releases are created by pushing a release [semantic version][semver] tag to the
+repository, Atomist Skills take care of the rest.
 
-1. **Get the commit messages validated on raised pull requests**
+To make this skill globally available, set its maturity to "stable" via the set
+maturity drop-down in its Atomist Community Slack channel.
 
-To create feature requests or bug reports, create an
-[issue in the repository for this skill](https://github.com/atomist-skills/commitlint-skill/issues).
-See the [code](https://github.com/atomist-skills/commitlint-skill) for the
-skill.
-
-<!---atomist-skill-readme:end--->
+[semver]: https://semver.org/ "Semantic Version"
 
 ---
 
 Created by [Atomist][atomist]. Need Help? [Join our Slack workspace][slack].
 
-[atomist]: https://atomist.com/ "Atomist - How Teams Deliver Software"
+[atomist]: https://atomist.com/ "Atomist - Automate All the Software Things"
 [slack]: https://join.atomist.com/ "Atomist Community Slack"

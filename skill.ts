@@ -28,9 +28,8 @@ export const Skill = skill<LintConfiguration & { repos: any }>({
 	name: "commitlint-skill",
 	namespace: "atomist",
 	displayName: "commitlint",
-	author: "Atomist",
+	description: "Validate commit messages on pull requests using commitlint",
 	categories: [Category.CodeMaintenance],
-	license: "Apache-2.0",
 
 	runtime: {
 		memory: 2048,
@@ -44,9 +43,9 @@ export const Skill = skill<LintConfiguration & { repos: any }>({
 	parameters: {
 		headOnly: {
 			type: ParameterType.Boolean,
-			displayName: "Check head commit only",
+			displayName: "Check HEAD commit only",
 			description:
-				"Check this if you want to only check the pull request head commit and not all commits",
+				"Check this if you want to only check the pull request HEAD commit and not all commits",
 			required: false,
 		},
 		title: {

@@ -1,5 +1,15 @@
 {
-  "main": "node_modules/@atomist/skill/lib/function.js",
+  "name": "@atomist/commitlint-skill",
+  "author": {
+    "name": "Atomist",
+    "email": "oss@atomist.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atomist-skills/commitlint-skill.git"
+  },
+  "homepage": "https://github.com/atomist-skills/commitlint-skill#readme",
+  "license": "Apache-2.0",
   "dependencies": {
     "@atomist/skill": "^0.5.0"
   },
@@ -32,6 +42,7 @@
   "directories": {
     "test": "test"
   },
+  "main": "node_modules/@atomist/skill/lib/function.js",
   "scripts": {
     "autotest": "supervisor --watch index.ts,lib,test --extensions ts --no-restart-on exit --quiet --exec npm -- test",
     "build": "run-s clean compile test lint doc",
