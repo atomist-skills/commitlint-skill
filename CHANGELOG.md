@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 -   Update package scripts. [dfef438](https://github.com/atomist-skills/commitlint-skill/commit/dfef438c9a68a6374286b3255ae68d97a3fd46a3)
+-   Uninstall 2 unused, install 1 missing npm dependencies. [#56](https://github.com/atomist-skills/commitlint-skill/issues/56)
 
 ### Removed
 
