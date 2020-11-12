@@ -24,11 +24,9 @@ monitoring commits on incoming pull requests across all of your repositories.
 Connect and configure this integration:
 
 -   **GitHub**
--   **Slack or Microsoft Teams**
 
 The **GitHub** integration must be configured in order to use this skill. At
-least one repository must be selected. We recommend that you configure the
-**Slack** or **Microsoft Teams** integration.
+least one repository must be selected.
 
 # How to configure
 
