@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/commitlint-skill/compare/0.2.0...HEAD)
 
+### Changed
+
+-   Update package scripts. [dfef438](https://github.com/atomist-skills/commitlint-skill/commit/dfef438c9a68a6374286b3255ae68d97a3fd46a3)
+
 ### Removed
 
 -   Remove unused chat provider. [077d453](https://github.com/atomist-skills/commitlint-skill/commit/077d453d668a046422aae7362ee597ef43c45c92)
