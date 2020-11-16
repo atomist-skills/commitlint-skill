@@ -30,6 +30,8 @@ export const Skill = skill<LintConfiguration & { repos: any }>({
 	displayName: "commitlint",
 	description: "Validate commit messages on pull requests using commitlint",
 	categories: [Category.CodeMaintenance],
+	iconUrl:
+		"https://raw.githubusercontent.com/atomist-skills/commitlint-skill/main/docs/images/icon.svg",
 
 	runtime: {
 		memory: 2048,
