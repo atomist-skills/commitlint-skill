@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/commitlint-skill/compare/1.0.0...HEAD)
 
+### Changed
+
+-   Use schema provided by @atomist/skill. [fb6aebb](https://github.com/atomist-skills/commitlint-skill/commit/fb6aebbe9153789c7ba168ea23b0609aac50cd22)
+
 ## [1.0.0](https://github.com/atomist-skills/commitlint-skill/compare/0.3.0...1.0.0) - 2020-11-16
 
 ### Changed
