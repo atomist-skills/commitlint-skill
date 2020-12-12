@@ -25,6 +25,7 @@ import {
 	Step,
 } from "@atomist/skill";
 import * as fs from "fs-extra";
+
 import { LintConfiguration } from "../configuration";
 import { LintOnPullRequestSubscription } from "../typings/types";
 
