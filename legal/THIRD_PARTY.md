@@ -21,7 +21,7 @@ This page details all runtime dependencies of `@atomist/commitlint-skill`.
 | [GPL-3.0](#gpl-30)              | 1     |
 | [ISC](#isc)                     | 49    |
 | [MIT AND Zlib](#mit-and-zlib)   | 1     |
-| [MIT](#mit)                     | 575   |
+| [MIT](#mit)                     | 576   |
 | [Public Domain](#public-domain) | 1     |
 | [Unlicense](#unlicense)         | 1     |
 
@@ -506,6 +506,7 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `form-data`                                          | `2.3.3`         | Felix Geisendörfer             | [https://github.com/form-data/form-data](https://github.com/form-data/form-data)                                                                                                                     |
 | `form-data`                                          | `3.0.0`         | Felix Geisendörfer             | [https://github.com/form-data/form-data](https://github.com/form-data/form-data)                                                                                                                     |
 | `fs-extra`                                           | `9.0.1`         | JP Richardson                  | [https://github.com/jprichardson/node-fs-extra](https://github.com/jprichardson/node-fs-extra)                                                                                                       |
+| `fs-extra`                                           | `9.1.0`         | JP Richardson                  | [https://github.com/jprichardson/node-fs-extra](https://github.com/jprichardson/node-fs-extra)                                                                                                       |
 | `fsevents`                                           | `2.1.3`         |                                | [https://github.com/fsevents/fsevents](https://github.com/fsevents/fsevents)                                                                                                                         |
 | `function-bind`                                      | `1.1.1`         | Raynos                         | [https://github.com/Raynos/function-bind](https://github.com/Raynos/function-bind)                                                                                                                   |
 | `gcs-resumable-upload`                               | `3.1.1`         | Stephen Sawchuk                | [https://github.com/googleapis/gcs-resumable-upload](https://github.com/googleapis/gcs-resumable-upload)                                                                                             |
