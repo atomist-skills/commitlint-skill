@@ -20,7 +20,7 @@ This page details all runtime dependencies of `@atomist/commitlint-skill`.
 | [GPL-3.0](#gpl-30)              | 1     |
 | [ISC](#isc)                     | 44    |
 | [MIT AND Zlib](#mit-and-zlib)   | 1     |
-| [MIT](#mit)                     | 599   |
+| [MIT](#mit)                     | 598   |
 | [Public Domain](#public-domain) | 1     |
 | [Python-2.0](#python-20)        | 1     |
 
@@ -174,7 +174,7 @@ ISC License - [https://www.isc.org/downloads/software-support-policy/isc-license
 | `fastq`                     | `1.7.0`   | Matteo Collina     | [https://github.com/mcollina/fastq](https://github.com/mcollina/fastq)                                       |
 | `fs.realpath`               | `1.0.0`   | Isaac Z. Schlueter | [https://github.com/isaacs/fs.realpath](https://github.com/isaacs/fs.realpath)                               |
 | `get-caller-file`           | `2.0.5`   | Stefan Penner      | [https://github.com/stefanpenner/get-caller-file](https://github.com/stefanpenner/get-caller-file)           |
-| `glob-parent`               | `5.1.1`   | Gulp Team          | [https://github.com/gulpjs/glob-parent](https://github.com/gulpjs/glob-parent)                               |
+| `glob-parent`               | `5.1.2`   | Gulp Team          | [https://github.com/gulpjs/glob-parent](https://github.com/gulpjs/glob-parent)                               |
 | `glob`                      | `7.1.6`   | Isaac Z. Schlueter | [https://github.com/isaacs/node-glob](https://github.com/isaacs/node-glob)                                   |
 | `graceful-fs`               | `4.2.4`   |                    | [https://github.com/isaacs/node-graceful-fs](https://github.com/isaacs/node-graceful-fs)                     |
 | `inflight`                  | `1.0.6`   | Isaac Z. Schlueter | [https://github.com/npm/inflight](https://github.com/npm/inflight)                                           |
@@ -616,7 +616,6 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `lodash.sortby`                                      | `4.7.0`        | John-David Dalton              | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                                                                                 |
 | `lodash.union`                                       | `4.6.0`        | John-David Dalton              | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                                                                                 |
 | `lodash.uniq`                                        | `4.5.0`        | John-David Dalton              | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                                                                                 |
-| `lodash`                                             | `4.17.19`      | John-David Dalton              | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                                                                                 |
 | `lodash`                                             | `4.17.21`      | John-David Dalton              | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                                                                                 |
 | `log-symbols`                                        | `1.0.2`        | Sindre Sorhus                  | [https://github.com/sindresorhus/log-symbols](https://github.com/sindresorhus/log-symbols)                                                                                                           |
 | `log-symbols`                                        | `4.0.0`        | Sindre Sorhus                  | [https://github.com/sindresorhus/log-symbols](https://github.com/sindresorhus/log-symbols)                                                                                                           |
